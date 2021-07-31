@@ -12,5 +12,5 @@ export const Body = styled.ScrollView`
 
 export const BackGround = styled.View`
   background-color: ${Colors.white};
-  padding-bottom:100px;
+  padding-bottom:20px;
 `;

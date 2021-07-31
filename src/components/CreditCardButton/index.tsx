@@ -7,6 +7,7 @@ import {
   InvoiceText,
   InvoiceAmount,
   AvailableLimit,
+  NoAccountValue,
 } from "./styles";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
 import { Colors } from "../../tools/colors";
@@ -15,13 +16,15 @@ interface ICreditCardButtonProps {
   title: string;
   invoiceAmountText: string;
   invoiceText: string;
-  availableLimitText:string
+  availableLimitText: string;
+  isVisible: boolean;
 }
 export const CreditCardButton = ({
   title,
   invoiceAmountText,
   invoiceText,
   availableLimitText,
+  isVisible,
 }: ICreditCardButtonProps) => {
   return (
     <>
@@ -37,7 +40,11 @@ export const CreditCardButton = ({
           />
         </WrapperRow>
         <InvoiceText>{invoiceText}</InvoiceText>
-        <InvoiceAmount>R$ {invoiceAmountText}</InvoiceAmount>
+        {isVisible ? (
+          <InvoiceAmount>R$ {invoiceAmountText}</InvoiceAmount>
+        ) : (
+          <NoAccountValue />
+        )}
         <AvailableLimit>{availableLimitText}</AvailableLimit>
       </Wrapper>
     </>

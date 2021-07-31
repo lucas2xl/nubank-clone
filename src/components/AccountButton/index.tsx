@@ -1,13 +1,18 @@
 import React from "react";
-import { Wrapper, WrapperRow, Title, AccountValue } from "./styles";
+import { Wrapper, WrapperRow, Title, AccountValue, NoAccountValue } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "../../tools/colors";
 
 interface IAccountButtonProps {
   title: string;
   accountValue: string;
+  isVisible: boolean;
 }
-export const AccountButton = ({ title, accountValue }: IAccountButtonProps) => {
+export const AccountButton = ({
+  title,
+  accountValue,
+  isVisible,
+}: IAccountButtonProps) => {
   return (
     <Wrapper activeOpacity={0.4}>
       <WrapperRow>
@@ -18,7 +23,11 @@ export const AccountButton = ({ title, accountValue }: IAccountButtonProps) => {
           color={Colors.gray.dark}
         />
       </WrapperRow>
-      <AccountValue>R$ {accountValue}</AccountValue>
+      {isVisible ? (
+        <AccountValue>R$ {accountValue}</AccountValue>
+      ) : (
+        <NoAccountValue />
+      )}
     </Wrapper>
   );
 };

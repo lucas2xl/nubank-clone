@@ -2,7 +2,7 @@ import React from "react";
 import { CardMoreInfo } from "../CardMoreInfo";
 import { Line, Wrapper, Title, MoreInfo } from "./styles";
 
-export const FindMoreHorizontal = () => {
+export const MoreInfoHorizontal = () => {
   return (
     <>
       <Line />

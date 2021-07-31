@@ -40,3 +40,9 @@ export const InvoiceAmount = styled.Text`
 export const AvailableLimit = styled(InvoiceText)`
   font-size: 12px;
 `;
+
+export const NoAccountValue = styled.View`
+  background-color: ${Colors.gray.light};
+  width: 250px;
+  height: 30px;
+`;

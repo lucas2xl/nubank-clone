@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import { Colors } from "../../tools/colors";
 
 export const Wrapper = styled.View`
-  height: 10%;
+  height: 8%;
   padding: 0 16px;
   background-color: ${Colors.purple.dark};
 `;

@@ -12,12 +12,13 @@ import { LoanButton } from "../../components/Loan";
 import { Colors } from "../../tools/colors";
 import { InvestmentButton } from "../../components/Investment";
 import { LifeInsuranceButton } from "../../components/LifeInsurance";
-import { FindMoreHorizontal } from "../../components/FindMore";
+import { MoreInfoHorizontal } from "../../components/MoreInfo";
 import { UserSettingsModal } from "../../components/UserSettingsModal";
 
 export const Home = () => {
   const [isShowModal, setShowModal] = useState(false);
   const [refreshing, setRefreshing] = React.useState(false);
+  const [isValueVisible, setValueVisible] = useState(true);
 
   const wait = (timeout = 2000) => {
     return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -47,9 +48,18 @@ export const Home = () => {
           />
         }
       >
-        <Header name={"Lucas"} onPressUserSettings={() => setShowModal(true)} />
+        <Header
+          name={"Lucas"}
+          onPressUserSettings={() => setShowModal(true)}
+          isVisible={isValueVisible}
+          setVisible={setValueVisible}
+        />
         <BackGround>
-          <AccountButton title={"Conta"} accountValue={"40.232,00"} />
+          <AccountButton
+            title={"Conta"}
+            accountValue={"40.232,00"}
+            isVisible={isValueVisible}
+          />
           <PaymentMethodsHorizontal />
           <MyCardsButton title={"Meus cartões"} />
           <InfoMethodsHorizontal />
@@ -58,6 +68,7 @@ export const Home = () => {
             invoiceText={"Fatura atual"}
             invoiceAmountText={"R$ 0,00"}
             availableLimitText={"Limite disponivel de R$ 12.250,00"}
+            isVisible={isValueVisible}
           />
           <LoanButton
             title={"Empréstimo"}
@@ -75,7 +86,7 @@ export const Home = () => {
             title={"Seguro de vida"}
             text={"Conheça Nubank Vida: um seguro simples e que cabe no bolso."}
           />
-          <FindMoreHorizontal />
+          <MoreInfoHorizontal />
         </BackGround>
       </Body>
     </>
